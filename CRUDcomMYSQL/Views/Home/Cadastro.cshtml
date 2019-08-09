@@ -1,0 +1,54 @@
+﻿@model CRUDcomMYSQL.Models.Usuario
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cadastro</title>
+</head>
+<body>
+	<div>
+		<form asp-action="Cadastro" method="post">
+		<div>
+			<label>Nome Completo:</label>
+			<input asp-for="Nome" required type="type" />
+		</div>
+		<div>
+			<label>E-mail:</label>
+			<input asp-for="Email" required type="email" />
+		</div>
+		<div>
+			<label>Senha:</label>
+			<input asp-for="Senha" required type="password" />
+		</div>
+		<div>
+			<label>Como devemos te chamar?:</label>
+			<input asp-for="Nome_social" required type="text" />
+		</div>
+		<div>
+			<label>Telefone:</label>
+			<input asp-for="Celular" required type="number" maxlength="11" />
+		</div>
+		<div>
+			<label>Podemos te contatar por e-mail?</label>
+			<input asp-for="Contato_email" type="radio" name="contato_email" value="sim" />sim ou
+			<input asp-for="Contato_email" type="radio" name="contato_email" value="nao" />não
+		</div>
+		<div>
+			<label>Podemos te contatar por celular?</label>
+			<input asp-for="Contato_celular" type="radio" name="contato_celular" value="sim" />sim ou
+			<input asp-for="Contato_celular" type="radio" name="contato_celular" value="nao" />não
+		</div>
+		<div>
+			<select required asp-for="Titulacao_id_titulacao">
+				@foreach (var item in ViewBag.Titulacao)
+				{
+					<option value="@item.Id">@item.Titulacao</option>
+				}
+			</select>
+		</div>
+		<input type="submit" value="cadastrar" />
+	</form>
+	</div>
+</body>
+</html>

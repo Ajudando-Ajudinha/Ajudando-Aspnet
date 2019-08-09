@@ -1,0 +1,33 @@
+﻿@model CRUDcomMYSQL.Models.Logar
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<title>Login</title>
+</head>
+<body>
+	@if (ViewBag.MSG == "")
+	{
+
+	}
+	else
+	{
+		<span>@ViewBag.MSG</span>
+	}
+
+	<form asp-action="Login" method="post">
+		<div>
+			<label asp-for="Email">E-mail:</label>
+			<input asp-for="Email" type="email" asp-action="Login" />
+		</div>
+		<div>
+			<label asp-for="Senha">senha:</label>
+			<input asp-for="Senha" type="password" asp-action="Login" />
+		</div>
+		<button type="submit">entrar</button>
+		<a asp-action="Cadastro">Não tem uma conta? Cadastre-se!</a>
+		<!--<a asp-action="">esqueci a senha</a>-->
+	</form>
+
+</body>
+</html>
